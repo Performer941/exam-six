@@ -3,6 +3,7 @@ import time
 import requests
 from lxml import etree
 
+list0 = []
 
 def main(url, headers):
     r = requests.get(url=url, headers=headers)
@@ -25,14 +26,13 @@ def main(url, headers):
         item["汽车价格(万)"] = x4[x1.index(temp)]
         print(item)
 
-        with open("test.csv", "a") as f:
+        with open("test.csv", "w+") as f:
             list1 = list()
             list1 += item
             # print("1",list1)
             t_csv = csv.DictWriter(f, list1)
-            # t_csv.writeheader()
-            list1 = [item]
-            t_csv.writerows(list1)
+            t_csv.writeheader()
+            t_csv.writerows(list0)
 
 
 # 捕获异常
