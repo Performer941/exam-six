@@ -24,7 +24,7 @@ def main(url, headers):
         item["汽车年份"] = x2[x1.index(temp)]
         item["汽车公里数"] = x3[x1.index(temp)]
         item["汽车价格(万)"] = x4[x1.index(temp)]
-        print(item)
+        list0.append(item)
 
         with open("test.csv", "w+") as f:
             list1 = list()
